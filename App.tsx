@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
+import Icon from 'react-native-vector-icons/AntDesign';
 import CategoriesScreen from './src/screens/CategoriesScreen';
 import MealsOverviewScreen from './src/screens/MealsOverviewScreen';
 import MealDetailScreen from './src/screens/MealDetailScreen';
@@ -22,15 +23,26 @@ function DrawerNavigator() {
         headerStyle: { backgroundColor: '#351401' },
         sceneContainerStyle: { backgroundColor: '#3f2f25' },
         // Drawer Navigation 에서는 contentStyle이 아니라 sceneContainerStyle로 설정해준다.
+        drawerContentStyle: { backgroundColor: '#351401' },
+        drawerInactiveTintColor: 'white',
+        drawerActiveTintColor: '#351401',
+        drawerActiveBackgroundColor: '#e4baa1',
       }}>
       <Drawer.Screen
         name="Categories"
         component={CategoriesScreen}
         options={{
           title: 'All Categories',
+          drawerIcon: ({ color, size }) => <Icon name="bars" color={color} size={size} />,
         }}
       />
-      <Drawer.Screen name="Favorites" component={FavoritesScreen} />
+      <Drawer.Screen
+        name="Favorites"
+        component={FavoritesScreen}
+        options={{
+          drawerIcon: ({ color, size }) => <Icon name="star" color={color} size={size} />,
+        }}
+      />
     </Drawer.Navigator>
   );
 }
