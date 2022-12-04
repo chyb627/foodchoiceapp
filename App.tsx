@@ -40,7 +40,15 @@ export default function App() {
             //   };
             // }}
           />
-          <Stack.Screen name="MealDetail" component={MealDetailScreen} />
+          <Stack.Screen
+            name="MealDetail"
+            component={MealDetailScreen}
+            // options={{
+            //   headerRight: () => {
+            //     return <Button title="Tab me!" onPress={} />;
+            //   },
+            // }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
