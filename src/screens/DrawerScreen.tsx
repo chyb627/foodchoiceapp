@@ -4,7 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import DrawerWelcomeScreen from './DrawerWelcomeScreen';
 import DrawerUserScreen from './DrawerUserScreen';
-import IconButton from '../components/\bIconButton';
+import IconButton from '../components/IconButton';
 
 const Drawer = createDrawerNavigator();
 
