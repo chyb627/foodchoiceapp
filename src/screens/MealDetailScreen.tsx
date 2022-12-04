@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useLayoutEffect } from 'react';
-import { Button, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import IconButton from '../components/\bIconButton';
 import List from '../components/MealDetail/List';
 import Subtitle from '../components/MealDetail/Subtitle';
 import MealDetails from '../components/MealDetails';
@@ -17,7 +18,7 @@ function MealDetailScreen({ route, navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Button title="tab me!" onPress={headerButtonPressHandler} />;
+        return <IconButton icon="star" color="white" onPress={headerButtonPressHandler} />;
       },
     });
   }, [navigation, headerButtonPressHandler]);
