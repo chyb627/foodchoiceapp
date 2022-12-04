@@ -23,6 +23,9 @@ function CategoriesScreen({ navigation }) {
   function goDrawerScreen() {
     navigation.navigate('Drawer');
   }
+  function goBottomTabScreen() {
+    navigation.navigate('Bottomtab');
+  }
 
   return (
     <>
@@ -32,7 +35,8 @@ function CategoriesScreen({ navigation }) {
         renderItem={renderCategoryItem}
         numColumns={2} // 기본값은 1, 2~3등을 이용하여 복수의 열을 만들 수 있다.
       />
-      <Button title="DrawerTest" onPress={goDrawerScreen} />
+      <Button title="DrawerScreenGO!!!" onPress={goDrawerScreen} />
+      <Button title="BottomTabScreenGO!!!" onPress={goBottomTabScreen} />
     </>
   );
 }

@@ -7,6 +7,7 @@ import CategoriesScreen from './src/screens/CategoriesScreen';
 import MealsOverviewScreen from './src/screens/MealsOverviewScreen';
 import MealDetailScreen from './src/screens/MealDetailScreen';
 import DrawerScreen from './src/screens/DrawerScreen';
+import BottomtabScreen from './src/screens/BottomtabScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,6 +52,7 @@ export default function App() {
             // }}
           />
           <Stack.Screen name="Drawer" component={DrawerScreen} />
+          <Stack.Screen name="Bottomtab" component={BottomtabScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

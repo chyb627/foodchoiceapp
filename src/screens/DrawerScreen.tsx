@@ -4,7 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import DrawerWelcomeScreen from './DrawerWelcomeScreen';
 import DrawerUserScreen from './DrawerUserScreen';
-import IconButton from '../components/IconButton';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const Drawer = createDrawerNavigator();
 
@@ -31,14 +31,14 @@ function DrawerScreen() {
             // drawerActiveBackgroundColor: '#f0e1ff',
             // drawerActiveTintColor: '#3c0a6b',
             // drawerStyle: { backgroundColor: '#ccc' },
-            drawerIcon: ({ color, size }) => <IconButton icon="home" color={color} size={size} />,
+            drawerIcon: ({ color, size }) => <Icon name="home" color={color} size={size} />,
           }}
         />
         <Drawer.Screen
           name="User"
           component={DrawerUserScreen}
           options={{
-            drawerIcon: ({ color, size }) => <IconButton icon="user" color={color} size={size} />,
+            drawerIcon: ({ color, size }) => <Icon name="user" color={color} size={size} />,
           }}
         />
       </Drawer.Navigator>

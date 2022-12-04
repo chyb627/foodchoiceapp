@@ -11,6 +11,7 @@
     "ios:clean": "cd ios && rm -rf Pods && pod cache clean --all && pod install && cd .."
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.4.3",
     "@react-navigation/drawer": "^6.5.3",
     "@react-navigation/native": "^6.0.16",
     "@react-navigation/native-stack": "^6.9.4",

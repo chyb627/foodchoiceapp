@@ -115,3 +115,7 @@ yarn add @react-navigation/drawer
 yarn add react-native-gesture-handler react-native-reanimated
 
 yarn start --reset-cache 로 시작하기.
+
+
+### bottom-tabs navigation
+yarn add @react-navigation/bottom-tabs
