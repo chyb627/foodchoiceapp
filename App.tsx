@@ -11,6 +11,7 @@ import MealDetailScreen from './src/screens/MealDetailScreen';
 import DrawerScreen from './src/screens/DrawerScreen';
 import BottomtabScreen from './src/screens/BottomtabScreen';
 import FavoritesScreen from './src/screens/FavoritesScreen';
+import FavoritesContextProvider from './src/store/context/favorites-context';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -51,42 +52,44 @@ export default function App() {
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerTintColor: 'white',
-            headerStyle: { backgroundColor: '#351401' },
-            contentStyle: { backgroundColor: '#3f2f25' },
-          }}>
-          <Stack.Screen
-            name="DrawerScreen"
-            component={DrawerNavigator}
-            options={{
-              title: 'All Categories',
-              headerShown: false, // 드로우 네비게이터 중첩으로 헤드가 2개 생기므로 하나를 가려준다.
-            }}
-          />
-          <Stack.Screen
-            name="MealsOverview"
-            component={MealsOverviewScreen}
-            // options={(route, navigation) => {
-            //   const catId = route.params.categoryId;
-            //   return {
-            //     title: catId,
-            //   };
-            // }}
-          />
-          <Stack.Screen
-            name="MealDetail"
-            component={MealDetailScreen}
-            options={{
-              title: 'About the Meal',
-            }}
-          />
-          <Stack.Screen name="Drawer" component={DrawerScreen} />
-          <Stack.Screen name="Bottomtab" component={BottomtabScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <FavoritesContextProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerTintColor: 'white',
+              headerStyle: { backgroundColor: '#351401' },
+              contentStyle: { backgroundColor: '#3f2f25' },
+            }}>
+            <Stack.Screen
+              name="DrawerScreen"
+              component={DrawerNavigator}
+              options={{
+                title: 'All Categories',
+                headerShown: false, // 드로우 네비게이터 중첩으로 헤드가 2개 생기므로 하나를 가려준다.
+              }}
+            />
+            <Stack.Screen
+              name="MealsOverview"
+              component={MealsOverviewScreen}
+              // options={(route, navigation) => {
+              //   const catId = route.params.categoryId;
+              //   return {
+              //     title: catId,
+              //   };
+              // }}
+            />
+            <Stack.Screen
+              name="MealDetail"
+              component={MealDetailScreen}
+              options={{
+                title: 'About the Meal',
+              }}
+            />
+            <Stack.Screen name="Drawer" component={DrawerScreen} />
+            <Stack.Screen name="Bottomtab" component={BottomtabScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </FavoritesContextProvider>
     </>
   );
 }
