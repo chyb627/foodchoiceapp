@@ -109,3 +109,9 @@ const thirdItems = [...items].splice(index, 1); // [{ id:1 }, { id:2 }, { id:4 }
 // findIndex 내장 함수는 배열에서 특정 조건을 만족하는 원소의 index 값을 조회한다.
 // splice 함수는 불변성을 지키는 함수가 아니다. 하지만 이 함수를 사용하기 전에 [...items]를 사용해 기존 items 배열 안에 있던 내용을 넣은 새로운 배열은 만들었기에 items 배열은 변함없이 기존 상태를 그대로 유지하게 된다.
 ```
+
+### drawer navigation
+yarn add @react-navigation/drawer
+yarn add react-native-gesture-handler react-native-reanimated
+
+yarn start --reset-cache 로 시작하기.
