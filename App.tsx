@@ -3,6 +3,7 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { Provider } from 'react-redux';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 import CategoriesScreen from './src/screens/CategoriesScreen';
@@ -11,7 +12,8 @@ import MealDetailScreen from './src/screens/MealDetailScreen';
 import DrawerScreen from './src/screens/DrawerScreen';
 import BottomtabScreen from './src/screens/BottomtabScreen';
 import FavoritesScreen from './src/screens/FavoritesScreen';
-import FavoritesContextProvider from './src/store/context/favorites-context';
+// import FavoritesContextProvider from './src/store/context/favorites-context';
+import { store } from './src/store/redux/store';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -52,7 +54,8 @@ export default function App() {
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <FavoritesContextProvider>
+      {/* <FavoritesContextProvider> */}
+      <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator
             screenOptions={{
@@ -89,7 +92,8 @@ export default function App() {
             <Stack.Screen name="Bottomtab" component={BottomtabScreen} />
           </Stack.Navigator>
         </NavigationContainer>
-      </FavoritesContextProvider>
+      </Provider>
+      {/* </FavoritesContextProvider> */}
     </>
   );
 }

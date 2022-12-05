@@ -1,7 +1,9 @@
 # foodchoiceapp
+
 reac_native_app_learn_navigation
 
 # navigation 설치
+
 yarn add @react-navigation/native
 yarn add react-native-screens react-native-safe-area-context
 yarn add @react-navigation/native-stack
@@ -21,17 +23,18 @@ yarn add @react-navigation/native-stack
 </Stack.Navigator>
 ```
 
-<Stack.Screen>순서를 변경함으로써 초기 화면을 변경할 수 있습니다. 
+<Stack.Screen>순서를 변경함으로써 초기 화면을 변경할 수 있습니다.
 내비게이터 컴포넌트(예시의<Stack.Navigator>에 설정할 수 있는 initialRouteName 프로퍼티를 사용할 수도 있습니다.
 
 ```js
 <Stack.Navigator initialRouteName="ProductDetails">
-  <Stack.Screen name="AllProducts" component={AllProducts} /> 
+  <Stack.Screen name="AllProducts" component={AllProducts} />
   <Stack.Screen name="ProductDetails" component={ProductDetails} /> // initial screen
 </Stack.Navigator>
 ```
 
 ## navigation(페이지 이동)
+
 1. Stack.Screen에 등록된 Screen은 navigation을 porps로 받을 수 있다.
 2. import { useNavigation } from '@react-navigation/native';
    const navigation = useNavigation();
@@ -42,14 +45,14 @@ yarn add @react-navigation/native-stack
 ```js
 const info = {
   id: 1,
-  name: 'young cha'
+  name: 'young cha',
 };
 
 info.name = 'bin cha'; // X, 객체 직접 수정 X, 기존 객체는 그대로 두고 새로운 객체를 만들어 덮어 씌워야함.
 
 const secondInfo = {
   ...info,
-  name: 'bin cha'
+  name: 'bin cha',
 };
 ```
 
@@ -61,12 +64,12 @@ const secondInfo = {
 const number = [0, 1, 2, 3];
 number.push(4); // [0, 1, 2, 3, 4]
 number[0] = 10; // [10, 1, 2, 3, 4]
-number.splice(0, 1) // [1, 2, 3, 4] -> 0번째 인덱스부터, 1게 삭제
+number.splice(0, 1); // [1, 2, 3, 4] -> 0번째 인덱스부터, 1게 삭제
 // 이 코드는 모두 직접 수정. 리액트에서 상태 관리할 때 이와 같이 코드 작성 X
 // 배열의 내장 함수들을 활용해 새로운 배열을 생성하는 방식으로 배열 상태를 업데이트 해야한다.
 
 const num = [0, 1, 2, 3];
-const secondNum = [...num, 4];  // [0, 1, 2, 3, 4]
+const secondNum = [...num, 4]; // [0, 1, 2, 3, 4]
 const thirdNum = num.concat(4); // [0, 1, 2, 3, 4]
 const fourthNum = num.concat([4, 5, 6]); // [0, 1, 2, 3, 4, 5, 6]
 // 불변성을 유지하면서 배열에 새로운 항목을 추가하는 방법은 위와같이 2가지다.
@@ -79,12 +82,12 @@ const fourthNum = num.concat([4, 5, 6]); // [0, 1, 2, 3, 4, 5, 6]
 
 ```js
 const number = [-3, -2, -1, 0, 1, 2, 3];
-const filtered = number.filter(number => nummber > 0);
+const filtered = number.filter((number) => nummber > 0);
 console.log(filtered); // [1, 2, 3]
 // filter함수는 배열에 특정 조건을 만족하는 원소들로 이루어진 새로운 배열을 만들어 준다.
 // filter함수를 사용하여 0보다 큰 원소들을 모아 새로운 배열을 만듦.
 
-const secondNumber = number.filter(number => number !== 0);
+const secondNumber = number.filter((number) => number !== 0);
 console.log(secondNumber); // [-3, -2, -1, 1, 2, 3]
 // 특정 값만 없애고 싶다면 다음과 같이 코드를 입력하면 된다.
 // 배열에서 숫자 0과 일치하지 않는 값들을 필터링해 0을 제거.
@@ -98,24 +101,29 @@ console.log(thirdNumber); // [-3, -2, -1, 1, 2, 3]
 
 // 여러 객체로 이루어진 배열을 다룰 때 어떻게 해야 할까?
 // id 값이 3인 객체를 지우고 싶다면,
-const items = [{ id:1 }, { id:2 }, { id:3 }, { id:4 }];
-const secondItems = items.filter(item => item.id !== 3);
+const items = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+const secondItems = items.filter((item) => item.id !== 3);
 console.log(secondItems); // [{ id:1 }, { id:2 }, { id:4 }]
 
 // 특정 항목을 제거할 때는,
-const items = [{ id:1 }, { id:2 }, { id:3 }, { id:4 }];
-const itemIndex = items.findIndex(item=> item.id === 3); // 2
+const items = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+const itemIndex = items.findIndex((item) => item.id === 3); // 2
 const thirdItems = [...items].splice(index, 1); // [{ id:1 }, { id:2 }, { id:4 }]
 // findIndex 내장 함수는 배열에서 특정 조건을 만족하는 원소의 index 값을 조회한다.
 // splice 함수는 불변성을 지키는 함수가 아니다. 하지만 이 함수를 사용하기 전에 [...items]를 사용해 기존 items 배열 안에 있던 내용을 넣은 새로운 배열은 만들었기에 items 배열은 변함없이 기존 상태를 그대로 유지하게 된다.
 ```
 
 ### drawer navigation
+
 yarn add @react-navigation/drawer
 yarn add react-native-gesture-handler react-native-reanimated
 
 yarn start --reset-cache 로 시작하기.
 
-
 ### bottom-tabs navigation
+
 yarn add @react-navigation/bottom-tabs
+
+### Redux Toolkit
+
+yarn add @reduxjs/toolkit react-redux
